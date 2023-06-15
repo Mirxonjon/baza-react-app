@@ -1,0 +1,20 @@
+.addform {
+    position: absolute;
+    left: 520px;   
+    top: 120px;
+    width: 500px; 
+    background-color: #198754;
+    color: white;
+    display: none;
+}
+
+.divForm {
+    margin: 10px 20px;
+}
+
+.add-btn{
+    margin: 10px 25px;
+    width: 450px;
+    text-align: center;
+    
+}

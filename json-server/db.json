@@ -1,0 +1,68 @@
+{
+  "users": [
+    {
+      "id": "fsefsgvfvsesrv",
+      "full_name": "Anvar",
+      "passport_seria": "AC123052",
+      "date_birth": "2023-06-01",
+      "get_date": "2023-06-01",
+      "finish_day": "2023-07-06",
+      "License_type": "D"
+    },
+    {
+      "id": "asfsefsergfvevev",
+      "full_name": "Jabbor",
+      "passport_seria": "AC12352",
+      "date_birth": "2023-06-01",
+      "get_date": "2023-06-01",
+      "finish_day": "2023-07-08",
+      "License_type": "A"
+    },
+    {
+      "id": "vservervreewfovreo",
+      "full_name": "Laziz",
+      "passport_seria": "AC123052",
+      "date_birth": "2023-06-01",
+      "get_date": "2023-06-01",
+      "finish_day": "2023-07-07",
+      "License_type": "A"
+    },
+    {
+      "id": "740ff77d-d9fa-4c80-8bdf-29855ccc8c2a",
+      "full_name": "Mirxonjon",
+      "passport_seria": "AA12345",
+      "date_birth": "2023-06-01",
+      "get_date": "2023-06-01",
+      "finish_day": "2023-07-28",
+      "License_type": "A"
+    },
+    {
+      "id": "aedab9a8-af4f-4a8f-9f31-0c8e175e39a7",
+      "full_name": "Mirxonjon1",
+      "passport_seria": "AA12345",
+      "date_birth": "2023-06-08",
+      "get_date": "2023-06-16",
+      "finish_day": "2023-06-18",
+      "License_type": "C"
+    },
+    {
+      "id": "cd349c40-b4f8-4f00-be6d-b96e92a09fd3",
+      "full_name": "Mirxonjon12",
+      "passport_seria": "AA12345",
+      "date_birth": "2023-06-17",
+      "get_date": "2023-06-24",
+      "finish_day": "2023-07-06",
+      "License_type": "PRO"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
