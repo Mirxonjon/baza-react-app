@@ -10,7 +10,6 @@ function Home() {
     const dispatch = useDispatch();
     const datenow = new Date()
     const dateFormat = `${datenow.getFullYear()}-${datenow.getMonth()+1 > 10 ?datenow.getMonth()+1 : `0${datenow.getMonth()+1}`  }-${datenow.getDate()}`
-    console.log(dateFormat);
 
 
     const { users , loading } = useSelector((state) => state.users)
