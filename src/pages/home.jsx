@@ -2,12 +2,15 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Button, Form, FormGroup, Input, Label, Table } from "reactstrap"
 import { deleteUser, showUser, updateUser } from "../store/slice/users"
+import { convertorDateToDay } from "../utils/utils"
 
 
 function Home() {
     const [active , SetActive] = useState(false)
     const dispatch = useDispatch();
-
+    const datenow = new Date()
+    const dateFormat = `${datenow.getFullYear()}-${datenow.getMonth()+1 > 10 ?datenow.getMonth()+1 : `0${datenow.getMonth()+1}`  }-${datenow.getDate()}`
+    console.log(dateFormat);
 
 
     const { users , loading } = useSelector((state) => state.users)
@@ -39,12 +42,13 @@ function Home() {
 
     const handlEditBtn = (e) => {
         e.preventDefault();
-        if( e.target.name.value && e.target.passport.value && e.target.get_date.value  &&  e.target.finish_day.value){
+        if( e.target.name.value && e.target.passport.value && e.target.get_date.value  &&  e.target.finish_day.value &&  e.target.region.value){
             const EditUser = {
               id: e.target.dataset.id,
               full_name: e.target.name.value,
               passport_seria: e.target.passport.value ,
               date_birth: e.target.date_birth.value ,
+              region :  e.target.region.value,
               get_date: e.target.get_date.value  ,
               finish_day : e.target.finish_day.value,
               License_type : e.target.License_type.value
@@ -52,7 +56,7 @@ function Home() {
             dispatch(updateUser(EditUser));
             handleEditOpenBtn(null , false)
     }else {
-        alert("Ism , Pasport seriya, litsenziya berilgan sana yoki litsenziya tugashi kiritilmagan")
+        alert("Ism , Pasport seriya, Viloyat, litsenziya berilgan sana yoki litsenziya tugashi kiritilmagan")
       }
 }
     const handleDeleteBtn = (id) => {
@@ -61,6 +65,7 @@ function Home() {
     if (loading) {
         return <h2>Loading</h2>;
       }
+      
     return(
         <div>
              <Form className="addform editForm" onSubmit={handlEditBtn} >   
@@ -89,6 +94,56 @@ function Home() {
                     type="text"
                     />
                 </FormGroup >
+
+                <FormGroup className="divForm">
+                    <Label htmlFor="exampleSelect">
+                        Viloyati
+                    </Label>
+                    <Input
+                    id="exampleSelect"
+                    name="region"
+                    type="select"
+                    defaultValue={"Toshkent sh"}
+                    className="edit_License_type"
+                    >
+                    <option>
+                        Toshkent sh
+                    </option>
+                    <option>
+                        Toshkent 
+                    </option>
+                    <option>
+                        Andijon 
+                    </option>
+                    <option>
+                    Buxoro
+                    </option>
+                    <option>
+                    Fargʻona
+                    </option>
+                    <option>
+                    Xorazm
+                    </option>
+                    <option>
+                    Namangan
+                    </option>
+                    <option>
+                    Navoiy
+                    </option>
+                    <option>
+                    Qashqadaryo
+                    </option>
+                    <option>
+                    Qoraqalpogʻiston
+                    </option>
+                    <option>
+                    Sirdaryo
+                    </option>
+                    <option>
+                    Surxondaryo
+                    </option>
+                    </Input>
+                </FormGroup>
 
                 <FormGroup className="divForm">
                 <label htmlFor="date" style={{marginRight: "30px"}}>Tug'ulgan kuni :</label>
@@ -155,6 +210,9 @@ function Home() {
                         Tug'ilgan kun
                     </th>
                     <th>
+                        Viloyat
+                    </th>
+                    <th>
                         Berilgan kuni
                     </th>
                     <th>
@@ -175,7 +233,10 @@ function Home() {
                 <tbody>
                     {
                         users.length ? users.map((e, i) => (
-                            <tr key={i}>
+                            <tr key={i} style={
+                                convertorDateToDay(e.finish_day) - convertorDateToDay(dateFormat) < 0 ?  {backgroundColor: "red"}:  convertorDateToDay(e.finish_day) - convertorDateToDay(dateFormat) < 150 ? {backgroundColor: "orange"}:null}>
+                                
+                                
                             <th scope="row">
                                 {i}
                             </th>
@@ -188,6 +249,10 @@ function Home() {
                             </td>
                             <td>
                             {e.date_birth}
+
+                            </td>
+                            <td>
+                            {e.region}
 
                             </td>
                             <td>

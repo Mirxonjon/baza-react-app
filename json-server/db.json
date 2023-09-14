@@ -50,9 +50,59 @@
       "full_name": "Mirxonjon12",
       "passport_seria": "AA12345",
       "date_birth": "2023-06-17",
+      "region": "Navoiy",
       "get_date": "2023-06-24",
       "finish_day": "2023-07-06",
-      "License_type": "PRO"
+      "License_type": "A"
+    },
+    {
+      "id": "426bbb1c-d6c1-4447-bd5e-d088ec756bee",
+      "full_name": "Anvar",
+      "passport_seria": "AC123052",
+      "date_birth": "2023-06-01",
+      "get_date": "2023-06-01",
+      "finish_day": "2023-07-06",
+      "License_type": "D"
+    },
+    {
+      "id": "ab5a5ac6-ddaf-4fcc-a126-91603f9ccd80",
+      "full_name": "Mirxonjon11",
+      "passport_seria": "AA12345",
+      "date_birth": "2023-09-29",
+      "region": "Toshkent",
+      "get_date": "2023-10-05",
+      "finish_day": "2023-09-29",
+      "License_type": "D"
+    },
+    {
+      "id": "c031728d-4f7a-483e-8c55-8b98884aa8d4",
+      "full_name": "a",
+      "passport_seria": "a",
+      "date_birth": "2023-09-29",
+      "region": "Namangan",
+      "get_date": "2023-09-20",
+      "finish_day": "2023-09-22",
+      "License_type": "D"
+    },
+    {
+      "id": "bfd466f5-f2b7-4cac-bda0-c516e67908cd",
+      "full_name": "c",
+      "passport_seria": "AC123052",
+      "date_birth": "2023-09-01",
+      "region": "Toshkent sh",
+      "get_date": "2023-08-29",
+      "finish_day": "2024-05-23",
+      "License_type": "A"
+    },
+    {
+      "id": "6edcd803-51f3-49ba-953b-fbbbbc1972dc",
+      "full_name": "Jabbor111",
+      "passport_seria": "1516",
+      "date_birth": "2023-09-09",
+      "region": "Toshkent sh",
+      "get_date": "2023-10-28",
+      "finish_day": "2023-12-22",
+      "License_type": "A"
     }
   ],
   "comments": [

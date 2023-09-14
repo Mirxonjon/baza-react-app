@@ -52,6 +52,17 @@ function Header() {
       }
 
     }
+
+    const handlesortByRegion = (e) =>{
+      e.preventDefault()
+      if(e.target.value == 'default'){
+        dispatch(userActionst.sortUser(dateForSort))
+      }else{
+        const sortedUser = dateForSort.filter(n => n.region == e.target.value)
+        dispatch(userActionst.sortUser(sortedUser)) 
+      }
+
+    }
   
     const handleSearchForm = (e) =>{
       let lowerCase = e.target.value.toLowerCase();
@@ -77,13 +88,14 @@ function Header() {
       e.preventDefault();
     
 
-      if( e.target.name.value && e.target.passport.value && e.target.get_date.value  &&  e.target.finish_day.value){
+      if( e.target.name.value && e.target.passport.value && e.target.get_date.value  &&  e.target.finish_day.value && e.target.region.value){
 
         const newUser = {
           id,
           full_name: e.target.name.value,
           passport_seria: e.target.passport.value ,
           date_birth: e.target.date_birth.value ,
+          region : e.target.region.value ,
           get_date: e.target.get_date.value  ,
           finish_day : e.target.finish_day.value,
           License_type : e.target.License_type.value
@@ -96,11 +108,12 @@ function Header() {
         e.target.passport.value = null ,
         e.target.date_birth.value = null  ,
         e.target.get_date.value = null ,
+        e.target.region.value = 'Toshkent sh'
         e.target.finish_day.value = null,
         e.target.License_type.value = "A"
         
       } else {
-        alert("Ism , Pasport seriya, litsenziya berilgan sana yoki litsenziya tugashi kiritilmagan")
+        alert("Ism , Pasport seriya, Viloyat, litsenziya berilgan sana yoki litsenziya tugashi kiritilmagan")
       }
     };
 
@@ -110,7 +123,7 @@ function Header() {
     <Form className="addform" onSubmit={handleAddTodo}>
     <button style={{marginLeft : "400px" , marginTop: "10px"}} onClick={handleOpenbtn} type="button" class="btn btn-danger">Close</button>
   <FormGroup className="divForm"> 
-    <Label htmlFor="name" className="Labeltag">
+    <Label htmlFor="name" className="">
       Full Name
     </Label>
     <Input className="input"
@@ -131,6 +144,56 @@ function Header() {
       type="text"
     />
   </FormGroup >
+
+  <FormGroup className="divForm">
+            <Label htmlFor="exampleSelect">
+                Viloyati
+            </Label>
+            <Input
+            id="exampleSelect"
+            name="region"
+            type="select"
+            defaultValue={"Toshkent sh"}
+            className="edit_License_type"
+            >
+            <option>
+                Toshkent sh
+            </option>
+            <option>
+                Toshkent 
+            </option>
+            <option>
+                Andijon 
+            </option>
+            <option>
+            Buxoro
+            </option>
+            <option>
+            Fargʻona
+            </option>
+            <option>
+            Xorazm
+            </option>
+            <option>
+            Namangan
+            </option>
+            <option>
+            Navoiy
+            </option>
+            <option>
+            Qashqadaryo
+            </option>
+            <option>
+            Qoraqalpogʻiston
+            </option>
+            <option>
+            Sirdaryo
+            </option>
+            <option>
+            Surxondaryo
+            </option>
+            </Input>
+          </FormGroup>
 
   <FormGroup className="divForm">
   <label htmlFor="date" style={{marginRight: "30px"}}>Tug'ulgan kuni :</label>
@@ -188,17 +251,56 @@ function Header() {
     <div style={{display: "flex" , justifyContent: "space-around"}} className="collapse navbar-collapse" id="navbarSupportedContent">
       
             <select className="form-select" onChange={handlesortByDate} name="sortDate"  style={{maxWidth: 200}} aria-label="Default select example ">
-                <option defaultValue={() => {}} value="default">All</option>
+                <option defaultValue={() => {}} value="default">Data sort</option>
                 <option value="old">Old</option>
                 <option value="new">New</option>
             </select>
             <select className="form-select" onChange={handlesortByType} name="sortType"  style={{maxWidth: 200}} aria-label="Default select example ">
-                <option defaultValue={() => {}} value="default">All</option>
+                <option defaultValue={() => {}} value="default">Litsenziya turlari</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
                 <option value="D">D</option>
                 <option value="PRO">PRO</option>
+            </select>
+            <select className="form-select" onChange={handlesortByRegion} name="sortDate"  style={{maxWidth: 200}} aria-label="Default select example ">
+                <option defaultValue={() => {}} value="default">Viloyatlar</option>
+                <option value='Toshkent sh'>
+                Toshkent sh
+            </option>
+            <option value='Toshkent'>
+                Toshkent 
+            </option>
+            <option value='Andijon'>
+                Andijon 
+            </option>
+            <option value='Buxoro'>
+            Buxoro
+            </option>
+            <option value='Fargʻona'>
+            Fargʻona
+            </option>
+            <option value='Xorazm'>
+            Xorazm
+            </option>
+            <option value='Namangan'>
+            Namangan
+            </option>
+            <option value='Navoiy'>
+            Navoiy
+            </option>
+            <option value='Qashqadaryo'>
+            Qashqadaryo
+            </option>
+            <option value='Qoraqalpogʻiston'>
+            Qoraqalpogʻiston
+            </option>
+            <option value='Sirdaryo'>
+            Sirdaryo
+            </option>
+            <option value='Surxondaryo'>
+            Surxondaryo
+            </option>
             </select>
       <form className="d-flex" onChange={handleSearchForm}>
         <input style={{width: 600}} name="search" className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
