@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import Home from './pages/home'
-import Header from './components/header/header'
+import { useState } from 'react';
+import Home from './pages/home';
+import Header from './components/header/header';
 
 function App() {
-
   return (
     <>
-    <Header />
+      <Header />
       <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
